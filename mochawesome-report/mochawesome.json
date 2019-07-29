@@ -1,0 +1,131 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 3,
+    "passes": 3,
+    "pending": 0,
+    "failures": 0,
+    "start": "2019-05-13T11:24:54.005Z",
+    "end": "2019-05-13T11:24:54.101Z",
+    "duration": 96,
+    "testsRegistered": 3,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false,
+    "passPercentClass": "success",
+    "pendingPercentClass": "danger"
+  },
+  "suites": {
+    "uuid": "445bb11b-b827-4e2a-b41a-e5db0a6f90cc",
+    "title": "",
+    "fullFile": "",
+    "file": "",
+    "beforeHooks": [],
+    "afterHooks": [],
+    "tests": [],
+    "suites": [
+      {
+        "uuid": "b604c9a0-38ea-42b3-8d25-9b84e1343e34",
+        "title": "GET /api/users/:id",
+        "fullFile": "C:\\testnode\\bullet\\src\\test\\index.js",
+        "file": "\\src\\test\\index.js",
+        "beforeHooks": [
+          {
+            "title": "\"before all\" hook",
+            "fullTitle": "GET /api/users/:id \"before all\" hook",
+            "timedOut": false,
+            "duration": 1,
+            "pass": false,
+            "fail": false,
+            "pending": false,
+            "code": "testData.server = \"http://localhost:3000\";\ntestData.validUserID = \"5c824cfb3b49d51fed3b62cb\";\ntestData.invalidUserID = \"5c824cfb3b49d51fed3b62ca\";\ntestData.incorrectUserID = \"5c824cf\";",
+            "err": {},
+            "isRoot": false,
+            "uuid": "58a627f6-a89d-4f81-845f-798a531bbeb7",
+            "isHook": true,
+            "skipped": false
+          }
+        ],
+        "afterHooks": [],
+        "tests": [
+          {
+            "title": "Find one user",
+            "fullTitle": "GET /api/users/:id Find one user",
+            "timedOut": false,
+            "duration": 76,
+            "state": "passed",
+            "speed": "slow",
+            "pass": true,
+            "fail": false,
+            "pending": false,
+            "code": "chai\n  .request(testData.server)\n  .get(`/api/users/${testData.validUserID}`)\n  .end((err, res) => {\n    console.log(res);\n    should.not.exist(err);\n    res.status.should.equal(200);\n    res.type.should.equal(\"application/json\");\n    res.body.should.include.keys(\"_id\", \"guid\", \"isActive\", \"age\");\n    done();\n  });",
+            "err": {},
+            "isRoot": false,
+            "uuid": "994fbdc2-f475-40d8-8677-104c42d70952",
+            "isHook": false,
+            "skipped": false
+          },
+          {
+            "title": "User not found",
+            "fullTitle": "GET /api/users/:id User not found",
+            "timedOut": false,
+            "duration": 7,
+            "state": "passed",
+            "speed": "fast",
+            "pass": true,
+            "fail": false,
+            "pending": false,
+            "code": "chai\n  .request(testData.server)\n  .get(`/api/users/${testData.invalidUserID}`)\n  .end((err, res) => {\n    res.status.should.equal(404);\n    res.type.should.equal(\"application/json\");\n    done();\n  });",
+            "err": {},
+            "isRoot": false,
+            "uuid": "86cb73c3-5eab-44cf-8875-d7003b3331d9",
+            "isHook": false,
+            "skipped": false
+          },
+          {
+            "title": "Incorrect user ID supplied",
+            "fullTitle": "GET /api/users/:id Incorrect user ID supplied",
+            "timedOut": false,
+            "duration": 3,
+            "state": "passed",
+            "speed": "fast",
+            "pass": true,
+            "fail": false,
+            "pending": false,
+            "code": "chai\n  .request(testData.server)\n  .get(`/api/users/${testData.incorrectUserID}`)\n  .end((err, res) => {\n    res.status.should.equal(400);\n    res.type.should.equal(\"application/json\");\n    done();\n  });",
+            "err": {},
+            "isRoot": false,
+            "uuid": "ac6b7ad8-8cee-4c8c-9880-3a7fb07182b6",
+            "isHook": false,
+            "skipped": false
+          }
+        ],
+        "suites": [],
+        "passes": [
+          "994fbdc2-f475-40d8-8677-104c42d70952",
+          "86cb73c3-5eab-44cf-8875-d7003b3331d9",
+          "ac6b7ad8-8cee-4c8c-9880-3a7fb07182b6"
+        ],
+        "failures": [],
+        "pending": [],
+        "skipped": [],
+        "duration": 86,
+        "root": false,
+        "rootEmpty": false,
+        "_timeout": 2000
+      }
+    ],
+    "passes": [],
+    "failures": [],
+    "pending": [],
+    "skipped": [],
+    "duration": 0,
+    "root": true,
+    "rootEmpty": true,
+    "_timeout": 2000
+  },
+  "copyrightYear": 2019
+}
